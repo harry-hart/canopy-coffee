@@ -1,0 +1,50 @@
+$font-stack:  Oswald, sans-serif;
+$background-color: White;
+$primary-color: #A36D65;
+$title-color: Black;
+// Browns: Light - D3BAB6, Darker - A36D65
+
+@font-face {
+  font-family: 'Oswald';
+  src: url(../../resources/fonts/Oswald-VariableFont-wght.ttf) format('truetype');
+}
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+  background-color: $background-color
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333333;
+  display: flex;
+  justify-content: right;
+}
+
+ul li a {
+  display: block;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  background-color: #111111;
+}
+
+thead, td {
+  text-align: left;
+}
+
+tbody {
+  text-align: right;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
