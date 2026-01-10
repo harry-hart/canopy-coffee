@@ -1,0 +1,35 @@
+{
+  "about": {
+    "Canopy Coffee description..."
+  },
+  "food": {
+    "BLT": 12.5,
+    "Cheese Toastie": 10
+  },
+  "drinks": {
+    "BLACK": {
+      "batch brew": 3.3,
+      "hand brew": 4.5,
+      "long black/americano": 3.1,
+      "double espresso": 2.8,
+    },
+    "WHITE": {
+      "macchiato": 3.0,
+      "americano": 3.1,
+      "flat white": 3.7,
+      "cappuccino": 3.7,
+      "caffè latte": 3.8,
+      "mocha": 4.2
+    },
+    "ICED": {
+      "cold brew": 4.0,
+      "iced latte": 3.8,
+      "iced long black": 3.4,
+      "iced mocha": 4.4,
+      "iced tea": 3.5,
+      "iced choc": 4.2,
+      "iced chai": 4.0,
+      "iced matcha": 4.2
+    }
+  }
+}

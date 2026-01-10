@@ -44,12 +44,19 @@ ul li a:hover {
   background-color: #111111;
 }
 
-thead, td {
+thead {
   text-align: left;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+td {
+  text-align: left;
+  font-size: clamp(0.9rem, 2vw, 1.5rem);
 }
 
 tbody {
   text-align: right;
+  font-size: clamp(0.9rem, 2vw, 1.5rem);
 }
 
 .page-container {
@@ -68,6 +75,7 @@ tbody {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   row-gap: 150px;
+  padding-bottom: 50vh;
 }
 
 .plain-link {
