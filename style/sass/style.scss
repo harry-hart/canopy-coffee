@@ -54,7 +54,14 @@ tbody {
 
 .page-container {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* Sizing and Positioning */
+  width: 70%;           /* Your desired width */
+  position: absolute;
+  top: 2vw;            /* Vertical distance from the top of the SVG */
+  /* Centering Logic */
+  left: 50%;            /* Move the left edge to the center of the screen */
+  transform: translateX(-50%); /* Shift it left by 50% of its own 70% width */
 }
 
 .menu-wrapper {
@@ -66,6 +73,18 @@ tbody {
 .plain-link {
   color: inherit;
   text-decoration: inherit;
+  
+  // Align text within the three grid columns
+  &:nth-child(1) { text-align: left; }   /* ABOUT */
+  &:nth-child(2) { text-align: center; } /* DRINKS */
+  &:nth-child(3) { text-align: right; }  /* FOOD */
+}
+
+/* Ensure h3 margins don't push the container out of alignment */
+.plain-link h3 {
+  margin: 0;
+  padding: 0 10px; /* Adds a little breathing room from the edges */
+  font-size: clamp(1rem, 2.5vw + 1rem, 3rem);
 }
 
 .menu-container {
@@ -80,6 +99,8 @@ tbody {
 .stack {
   margin: auto;
   position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%
   //display: block;
 }
 
