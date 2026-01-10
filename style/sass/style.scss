@@ -1,7 +1,8 @@
 $font-stack:  Oswald, sans-serif;
-$background-color: White;
-$primary-color: #A36D65;
-$title-color: Black;
+$background-colour: White;
+$font-colour: Black;
+$secondary-colour: #A36D65;
+$title-colour: Black;
 // Browns: Light - D3BAB6, Darker - A36D65
 
 @font-face {
@@ -11,8 +12,16 @@ $title-color: Black;
 
 body {
   font: 100% $font-stack;
-  color: $primary-color;
-  background-color: $background-color
+  color: $font-colour;
+  background-color: $background-colour;
+
+  // Centering
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: flex-start; /* Start content from the top */
+  min-height: 100vh; /* Ensures body takes full height */
+  margin: 0; /* Remove default body margin */
+  padding: 0;
 }
 
 ul {
@@ -43,8 +52,53 @@ tbody {
   text-align: right;
 }
 
-.grid-container {
+.page-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto auto auto;
 }
 
+.menu-wrapper {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  row-gap: 150px;
+}
+
+.plain-link {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.menu-container {
+  display: grid;
+  margin: auto;
+  float: left;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 50px;
+  clear: both;
+}
+
+.stack {
+  margin: auto;
+  position: relative;
+  //display: block;
+}
+
+.back {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  margin: auto;
+  //border: 1px solid #000000;
+}
+
+.front {
+  position: absolute;
+  //top: 150px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-55%, -25%);
+  height: 390px;
+  width: 700px;
+  //border: 1px solid #000000;
+}
