@@ -49,14 +49,53 @@ thead {
   text-align: left;
   font-size: clamp(1.5rem, 4vw, 3rem);
 }
+//
+//td {
+//  text-align: left;
+//  font-size: clamp(0.9rem, 2vw, 1.5rem);
+//}
+//
+//tbody {
+//  text-align: right;
+//  font-size: clamp(0.9rem, 2vw, 1.5rem);
+//}
 
-td {
-  text-align: left;
+// Reset table display to allow Grid logic
+table, tbody {
+  display: block;
+  width: 100%;
+}
+
+tr {
+  display: grid;
+  // 1st col (Label): Takes all remaining space (1fr)
+  // 2nd col (Name): Only as wide as the text (max-content)
+  // 3rd col (Price): Only as wide as the text (max-content)
+  grid-template-columns: 1fr max-content max-content;
+  column-gap: 20px;
+  align-items: baseline;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+// The "Category" column (BLACK, WHITE, etc.)
+th#table-sec {
+  text-align: left;    /* Aligns text to the far left of the page/container */
+  font-weight: bold;
   font-size: clamp(0.9rem, 2vw, 1.5rem);
 }
 
-tbody {
-  text-align: right;
+// The Item Name column
+th:not(#table-sec) {
+  text-align: right;   /* Aligns the item name to the right */
+  font-weight: normal;
+  font-size: clamp(0.9rem, 2vw, 1.5rem);
+}
+
+// The Price column
+td {
+  text-align: right;   /* Aligns the price to the right */
+  min-width: 40px;     /* Ensures a consistent gutter for prices */
   font-size: clamp(0.9rem, 2vw, 1.5rem);
 }
 
@@ -88,6 +127,7 @@ tbody {
   display: flex;
   flex-direction: column;
   justify-content: center; /* Vertically centers content if it's shorter than the screen */
+  align-items: center;
   
   box-sizing: border-box;  /* Ensures padding doesn't add to the 100vh */
   min-height: 100vh;       /* Forces each div to be at least the full screen height */
@@ -131,7 +171,7 @@ tbody {
 }
 
 .stack {
-  margin: auto;
+  margin: 0 auto;
   position: relative;
   aspect-ratio: 16 / 9;
   width: 100%
@@ -151,10 +191,27 @@ tbody {
 .front {
   position: absolute;
   //top: 150px;
-  top: 48%;
+  top: 41%;
   left: 52%;
   transform: translate(-55%, -25%);
-  height: 48%;
+  height: 55%;
   width: 70%;
   //border: 1px solid #000000;
+}
+
+@media (orientation: portrait) {
+  .page-container {
+    width: 90%;          /* Give links more room on small screens */
+    top: 2%;             /* Adjust based on where the "sign" is in your mobile SVG */
+  }
+
+  .front {
+    top: 35%;
+    height: 80%; /* Takes up half the screen height regardless of SVG scaling */
+    width: 80%;
+  }
+
+  .menu-container {
+    grid-template-columns: 1fr;
+  }
 }

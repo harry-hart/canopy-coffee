@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1125"
+   height="2436"
+   viewBox="0 0 1125 2436"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   sodipodi:docname="canopy_storefront_mobile.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     inkscape:zoom="0.2894029"
+     inkscape:cx="-342.08365"
+     inkscape:cy="1173.105"
+     inkscape:window-width="2194"
+     inkscape:window-height="1206"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:9.50122;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1"
+       width="985.89771"
+       height="2152.2834"
+       x="69.551117"
+       y="210.96617" />
+    <g
+       id="g1"
+       transform="translate(-4.9355347e-6,138.21562)">
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:10.3461;stroke-dasharray:none;stroke-opacity:1"
+         id="rect2"
+         width="984.71381"
+         height="152.07594"
+         x="42.437099"
+         y="78.536865"
+         ry="0"
+         transform="matrix(1,0,0.3753412,0.92688671,0,0)" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:73.3333px;font-family:Oswald;-inkscape-font-specification:Oswald;text-align:start;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:3;stroke-dasharray:none;stroke-opacity:1"
+         x="129.26642"
+         y="165.27336"
+         id="text2"><tspan
+           sodipodi:role="line"
+           id="tspan2"
+           x="129.26642"
+           y="165.27336"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:73.3333px;font-family:Oswald;-inkscape-font-specification:'Oswald Bold';letter-spacing:0px"
+           dx="0 0 0 0 0 0 0 0 0 0 0 0">canopy coffee</tspan></text>
+    </g>
+  </g>
+</svg>
