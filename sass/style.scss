@@ -104,11 +104,13 @@ td {
   grid-template-columns: 1fr 1fr 1fr;
   /* Sizing and Positioning */
   width: 70%;           /* Your desired width */
-  position: absolute;
-  top: 2vw;            /* Vertical distance from the top of the SVG */
+  //position: absolute;
+  position: relative;
+  top: 0;            /* Vertical distance from the top of the SVG */
   /* Centering Logic */
   left: 50%;            /* Move the left edge to the center of the screen */
   transform: translateX(-50%); /* Shift it left by 50% of its own 70% width */
+  z-index: 20;
 }
 
 .menu-wrapper {
@@ -173,9 +175,13 @@ td {
 .stack {
   margin: 0 auto;
   position: relative;
-  aspect-ratio: 16 / 9;
-  width: 100%
+  //aspect-ratio: 16 / 9;
+  //aspect-ratio: auto;
+  width: 100%;
   //display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .back {
@@ -185,7 +191,17 @@ td {
   display: block;
   margin: auto;
   width: 100%;
+  height: 100%;
   //border: 1px solid #000000;
+  z-index: 1;
+
+  picture, img {
+    width: 100%;
+    height: 100%;
+    /* 'contain' ensures the whole SVG is visible within the window 
+       without ever going off-screen or stretching */
+    object-fit: fill; 
+  }
 }
 
 .front {
@@ -194,24 +210,103 @@ td {
   top: 41%;
   left: 52%;
   transform: translate(-55%, -25%);
-  height: 55%;
+  height: 80%;
   width: 70%;
   //border: 1px solid #000000;
+  z-index: 1;
 }
 
-@media (orientation: portrait) {
-  .page-container {
-    width: 90%;          /* Give links more room on small screens */
-    top: 2%;             /* Adjust based on where the "sign" is in your mobile SVG */
-  }
+//@media (orientation: portrait) {
+//  .page-container {
+//    width: 90%;          /* Give links more room on small screens */
+//    top: 2%;             /* Adjust based on where the "sign" is in your mobile SVG */
+//  }
+//
+//  .front {
+//    top: 35%;
+//    height: 80%; /* Takes up half the screen height regardless of SVG scaling */
+//    width: 80%;
+//  }
+//
+//  .menu-container {
+//    grid-template-columns: 1fr;
+//  }
+//
+//  //.stack {
+//  //  aspect-ratio: auto; /* Allow the ratio to change */
+//  //  height: 100vh;      /* Force the container to never exceed screen height */
+//  //  max-height: 100vh;
+//  //  overflow: hidden;   /* Prevent any children from pushing the page down */
+//  //}
+//}
 
-  .front {
-    top: 35%;
-    height: 80%; /* Takes up half the screen height regardless of SVG scaling */
-    width: 80%;
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
   }
+  @return $string;
+}
 
-  .menu-container {
-    grid-template-columns: 1fr;
+// Add this helper function to the bottom of your file
+@function url-encode($string) {
+  $map: (
+    "%": "%25",
+    "<": "%3C",
+    ">": "%3E",
+    "#": "%23",
+    "(": "%28",
+    ")": "%29",
+    " ": "%20",
+  );
+
+  $new: $string;
+  @each $search, $replace in $map {
+    $new: str-replace($new, $search, $replace);
   }
+  @return $new;
+}
+
+// Draw Rectangle
+@function svg-framed-awning($frame-color, $awning-color, $awning-height: 20) {
+  // Percentages for the awning shape
+  $skew: 10; // How much the sides slant inward
+  
+  // Polygon points: Top-Left, Top-Right, Bottom-Right, Bottom-Left
+  //$awning-points: "0,0 100,0 #{100 - $skew},#{$awning-height} #{$skew},#{$awning-height}";
+
+  $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'>" +
+          "<rect " +
+            "style='fill:none;stroke:#000000;stroke-width:10;stroke-dasharray:none;stroke-opacity:1' " +
+            "x='10' " +
+            "width='80' height='100' " +
+            "vector-effect='non-scaling-stroke' " +
+          "/>" +
+          "<rect " +
+            "style='fill:none;stroke:#000000;stroke-width:10;stroke-dasharray:none;stroke-opacity:1' " +
+            "x='10' " +
+            "width='80' height='10' " +
+            "vector-effect='non-scaling-stroke' " +
+            "transform='matrix(1,0,0.5,0.8660254,0,0)' " +
+          "/>" +
+        "</svg>";
+
+  @return url("data:image/svg+xml,#{url-encode($svg)}");
+}
+
+
+.storefront-wrap {
+  flex-grow: 1; // Fills the rest of the window
+  position: relative;
+  
+  // Apply the generated SVG here
+  background-image: svg-framed-awning(#000000, #000000, 15);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 80%;
+  height: 80%;
+  margin: 0 auto 2vh auto;
+  
+  // Padding keeps the iframe content inside the "window" of the SVG
+  padding: 15% 5% 5% 5%; 
 }
