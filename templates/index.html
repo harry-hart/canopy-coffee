@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- SETUP --->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Base</title>
+    <link href="{{ get_url(path='style.css') }}" rel="stylesheet">
+    {% set menu_page = get_url(path='@/menu.md') %}
+  </head>
+  <body>
+
+
+    <div class="stack">
+      <div class="page-container"> 
+        <a class="plain-link" href="{{menu_page}}#about" target="frame"><h3>ABOUT</h3></a>
+        <a class="plain-link" href="{{menu_page}}#drinks" target="frame"><h3>DRINKS</h3></a>
+        <a class="plain-link" href="{{menu_page}}#food" target="frame"><h3>FOOD</h3></a>
+      </div>
+      <img class="back" src="{{ get_url(path='canopy_storefront.svg') }}" alt="Coffee storefront" style="z-index:-1" width="100%" height="100%">
+      <iframe class="front" name="frame" src="{{menu_page}}" frameborder="0">Your browser does not support inline frames.</iframe>
+    </div>
+
+  </body>
+</html>

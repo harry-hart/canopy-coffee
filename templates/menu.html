@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="{{ get_url(path='style.css') }}" rel="stylesheet">
+    {% set data = load_data(path="menu.json") %}
+  </head>
+  <body>
+
+
+    <div class="menu-wrapper">
+    <div id="about">
+        <p id="description">
+          {{data.about}}
+        </p>
+
+
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+    <div class="menu-container" id="drinks">
+    <div class="grid-child left">
+    <table>
+      <!--- Left --->
+      <tbody>
+      {% for drink in data.drinks.black %}
+        <tr>
+          {% if loop.index == 1 %}
+          <th id="table-sec">BLACK</th>
+          {% else %}
+          <th></th>
+          {% endif %}
+          <th>{{drink.name}}</th>
+          <td>{{drink.price}}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+      <tbody>
+      {% for drink in data.drinks.white %}
+        <tr>
+          {% if loop.index == 1 %}
+          <th id="table-sec">WHITE</th>
+          {% else %}
+          <th></th>
+          {% endif %}
+          <th>{{drink.name}}</th>
+          <td>{{drink.price}}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    <div class="grid-child right">
+    <table>
+      <tbody>
+      {% for drink in data.drinks.iced %}
+        <tr>
+          {% if loop.index == 1 %}
+          <th id="table-sec">ICED</th>
+          {% else %}
+          <th></th>
+          {% endif %}
+          <th>{{drink.name}}</th>
+          <td>{{drink.price}}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    </div>
+
+    <div class="menu-container" id="food">
+    <div class="grid-child left">
+    <table>
+      <!--- Left --->
+      <tbody>
+      {% for food in data.food %}
+        <tr>
+          {% if loop.index == 1 %}
+          <th id="table-sec">FOOD</th>
+          {% else %}
+          <th></th>
+          {% endif %}
+          <th>{{food.name}}</th>
+          <td>{{food.price}}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    <div class="grid-child right">
+    <table>
+      <tbody>
+        <tr>
+          <th id="table-sec">ICED</th>
+          <th>cold brew</th>
+          <td>4.0</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>
