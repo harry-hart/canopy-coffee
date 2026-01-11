@@ -12,6 +12,7 @@ $title-colour: Black;
 
 body {
   font: 100% $font-stack;
+  font-size: clamp(0.9rem, 2vw, 1.5rem);
   color: $font-colour;
   background-color: $background-colour;
 
@@ -72,11 +73,34 @@ tbody {
 }
 
 .menu-wrapper {
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  row-gap: 150px;
-  padding-bottom: 50vh;
+  display: flex;          /* Changed from grid to flex for better height control */
+  flex-direction: column;
+  /* Remove row-gap if you want the "snapping" full-page feel */
+  padding-bottom: 0;      
+  padding-top: 0;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh; /* Needed for snapping to work within a container */
 }
+
+.menu-wrapper > div,
+.menu-wrapper > .menu-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically centers content if it's shorter than the screen */
+  
+  box-sizing: border-box;  /* Ensures padding doesn't add to the 100vh */
+  min-height: 100vh;       /* Forces each div to be at least the full screen height */
+  padding: 10vh 5vw;       /* Adds responsive padding around your content */
+  scroll-snap-align: start;
+}
+//.menu-wrapper {
+  //display: grid;
+  //grid-template-rows: 1fr 1fr 1fr;
+  //row-gap: 150px;
+  //padding-bottom: 50vh;
+  //padding-top: 10vh;
+//}
 
 .plain-link {
   color: inherit;
@@ -96,11 +120,13 @@ tbody {
 }
 
 .menu-container {
-  display: grid;
+  display: grid !important;
   margin: auto;
   float: left;
   grid-template-columns: 1fr 1fr;
   column-gap: 50px;
+  width: 100%;
+  align-items: start;
   clear: both;
 }
 
