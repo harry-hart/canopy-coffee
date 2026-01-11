@@ -21,6 +21,8 @@
             # Dart Sass is available directly in Nixpkgs
             dart-sass
             # Add any other tools you need, e.g., Node.js for a frontend project
+            python3
+            zola
             # nodejs
             # Git, your preferred editor, etc.
           ];
