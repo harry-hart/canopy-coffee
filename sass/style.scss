@@ -109,6 +109,7 @@ td {
   /* Centering Logic */
   left: 50%;            /* Move the left edge to the center of the screen */
   transform: translateX(-50%); /* Shift it left by 50% of its own 70% width */
+  z-index: 20;
 }
 
 .menu-wrapper {
@@ -186,6 +187,7 @@ td {
   margin: auto;
   width: 100%;
   //border: 1px solid #000000;
+  z-index: 1;
 }
 
 .front {
@@ -197,6 +199,7 @@ td {
   height: 55%;
   width: 70%;
   //border: 1px solid #000000;
+  z-index: 1;
 }
 
 @media (orientation: portrait) {
